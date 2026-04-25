@@ -1,27 +1,51 @@
-P<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-  
-  <symbol id="icon-send" viewBox="0 0 24 24">
-    <path d="M24 0l-6 22-8.129-7.239 7.802-8.234-10.458 7.227-7.215-1.754 24-12zm-15 16.668v7.332l3.258-4.431-3.258-2.901z"/>
-  </symbol>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
 
-  <symbol id="icon-email" viewBox="0 0 24 24">
-    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-  </symbol>
-
-  <symbol id="phone" viewBox="0 0 24 24">
-    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-  </symbol>
-
-  <symbol id="person" viewBox="0 0 24 24">
-    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-  </symbol>
-
-  <symbol id="check" viewBox="0 0 10 8">
-    <path d="M8.445 0.443a0.429 0.429 0 0 1 0.607 0l0.505 0.505a0.429 0.429 0 0 1 0 0.607L4.032 7.08a0.429 0.429 0 0 1-0.607 0L0.443 4.098a0.429 0.429 0 0 1 0-0.607l0.505-0.505a0.429 0.429 0 0 1 0.607 0L3.729 5.159l4.716-4.716z"/>
-  </symbol>
-
+  <!-- CLOSE -->
   <symbol id="close" viewBox="0 0 8 8">
-    <path d="M8 0.8L7.2 0L4 3.2L0.8 0L0 0.8L3.2 4L0 7.2L0.8 8L4 4.8L7.2 8L8 7.2L4.8 4L8 0.8Z"/>
+    <path d="M1 1l6 6M7 1L1 7" stroke="currentColor" stroke-width="1.5"/>
+  </symbol>
+
+  <!-- CHECK -->
+  <symbol id="check" viewBox="0 0 10 8">
+    <path d="M1 4l3 3 5-6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  </symbol>
+
+  <!-- PERSON -->
+  <symbol id="person" viewBox="0 0 18 24">
+    <path d="M9 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-4 0-7 2-7 5v3h14v-3c0-3-3-5-7-5z"/>
+  </symbol>
+
+  <!-- PHONE -->
+  <symbol id="phone" viewBox="0 0 18 24">
+    <path d="M6 2h6v20H6z"/>
+  </symbol>
+
+  <!-- EMAIL -->
+  <symbol id="icon-email" viewBox="0 0 18 24">
+    <path d="M2 6h14v12H2z"/>
+    <path d="M2 6l7 6 7-6"/>
+  </symbol>
+
+  <!-- SEND -->
+  <symbol id="icon-send" viewBox="0 0 24 24">
+    <path d="M2 21l20-9L2 3v7l15 2-15 2z"/>
+  </symbol>
+
+  <!-- SOCIAL -->
+  <symbol id="icon-instagram" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="5"/>
+  </symbol>
+
+  <symbol id="icon-twitter" viewBox="0 0 24 24">
+    <path d="M4 4l16 16"/>
+  </symbol>
+
+  <symbol id="icon-facebook" viewBox="0 0 24 24">
+    <path d="M10 2h4v20h-4z"/>
+  </symbol>
+
+  <symbol id="icon-linkedin" viewBox="0 0 24 24">
+    <path d="M4 4h4v16H4zM10 10h4v10h-4z"/>
   </symbol>
 
 </svg>
