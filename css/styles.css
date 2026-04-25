@@ -1,20 +1,17 @@
-/* A1: Всі стилі в одному файлі */
 :root {
   --primary-font: "Roboto", sans-serif;
   --accent-color: #4d5ae5;
   --navy-blue: #2e2f42;
-  --slate: #434455;
   --white: #ffffff;
   --cloud: #f4f4fd;
   --light-slate: #8e8f99;
   --dairy: #fcfcfc;
-  /* D6: Параметри переходів */
   --transition-dur-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
   font-family: var(--primary-font);
-  color: var(--slate);
+  color: #434455;
   background-color: var(--white);
 }
 
@@ -37,16 +34,7 @@ body {
   overflow: hidden;
 }
 
-/* --- BUTTONS --- */
-.btn {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  border-radius: 4px;
-  transition: background-color var(--transition-dur-func);
-}
-
-/* --- FOOTER & SUBSCRIBE FORM (D1) --- */
+/* --- FOOTER --- */
 .footer {
   background-color: var(--navy-blue);
   padding: 100px 0;
@@ -72,26 +60,10 @@ body {
   padding-left: 16px;
   color: var(--white);
   font-size: 12px;
-  transition: border-color var(--transition-dur-func);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
 }
 
-.subscribe-input:focus {
-  outline: none;
-  border-color: var(--accent-color);
-}
-
-.subscribe-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 165px;
-  height: 40px;
-  background-color: var(--accent-color);
-  color: var(--white);
-  font-weight: 500;
-}
-
-/* --- BACKDROP (B1, B2, B6, B7) --- */
+/* --- MODAL BACKDROP --- */
 .backdrop {
   position: fixed;
   top: 0;
@@ -99,25 +71,20 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(46, 47, 66, 0.4);
-
-  /* Спочатку прихований */
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-
   transition:
     opacity var(--transition-dur-func),
     visibility var(--transition-dur-func);
 }
 
-/* B7: Клас для відкриття */
 .backdrop.is-open {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
 }
 
-/* --- MODAL (B3, B4) --- */
 .modal {
   position: absolute;
   top: 50%;
@@ -132,54 +99,18 @@ body {
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   padding: 72px 24px 24px 24px;
-  transition: transform var(--transition-dur-func);
 }
 
-/* B5: CLOSE BUTTON */
-.close-btn {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #e7e9fc;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 0;
-  transition:
-    background-color var(--transition-dur-func),
-    border var(--transition-dur-func);
-}
-
-.close-btn:hover,
-.close-btn:focus {
-  background-color: #404bbf;
-  border: none;
-  fill: var(--white);
-}
-
-/* --- MODAL FORM (D2) --- */
-.modal-title {
-  font-weight: 500;
-  text-align: center;
-  color: var(--navy-blue);
-  margin-bottom: 16px;
-}
-
+/* --- FORM ELEMENTS --- */
 .modal-field {
   margin-bottom: 8px;
 }
-
 .modal-label {
   display: block;
   font-size: 12px;
   color: var(--light-slate);
   margin-bottom: 4px;
   line-height: 1.17;
-  letter-spacing: 0.04em;
 }
 
 .input-wrap {
@@ -191,17 +122,15 @@ body {
   height: 40px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 4px;
-  background-color: transparent;
   padding-left: 38px;
   outline: transparent;
   transition: border-color var(--transition-dur-func);
 }
 
-/* D3: Фокус на інпуті та зміна іконки */
+/* D3: Зміна кольору рамки та іконки */
 .modal-input:focus {
   border-color: var(--accent-color);
 }
-
 .input-icon {
   position: absolute;
   left: 16px;
@@ -210,48 +139,25 @@ body {
   fill: var(--navy-blue);
   transition: fill var(--transition-dur-func);
 }
-
 .modal-input:focus + .input-icon {
   fill: var(--accent-color);
-}
-
-/* C11: Textarea */
-.modal-field-comment {
-  margin-bottom: 16px;
 }
 
 .modal-textarea {
   width: 100%;
   height: 120px;
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.04em;
-  color: rgba(46, 47, 66, 0.4);
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 4px;
-  background-color: transparent;
   padding: 8px 16px;
   outline: transparent;
-  resize: none; /* Заборона зміни розміру */
+  resize: none; /* C11 */
   transition: border-color var(--transition-dur-func);
 }
-
 .modal-textarea:focus {
   border-color: var(--accent-color);
 }
 
 /* D5: CUSTOM CHECKBOX */
-.modal-field-policy {
-  margin-bottom: 24px;
-}
-
-.policy-label {
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.04em;
-  color: var(--light-slate);
-}
-
 .custom-check {
   width: 16px;
   height: 16px;
@@ -274,6 +180,13 @@ body {
   fill: var(--cloud);
 }
 
+.btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  transition: background-color var(--transition-dur-func);
+}
+
 .submit-btn {
   display: block;
   margin: 0 auto;
@@ -281,6 +194,4 @@ body {
   height: 56px;
   background-color: var(--accent-color);
   color: var(--white);
-  font-weight: 500;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
