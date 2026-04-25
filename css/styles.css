@@ -1,197 +1,113 @@
-:root {
-  --primary-font: "Roboto", sans-serif;
-  --accent-color: #4d5ae5;
-  --navy-blue: #2e2f42;
-  --white: #ffffff;
-  --cloud: #f4f4fd;
-  --light-slate: #8e8f99;
-  --dairy: #fcfcfc;
-  --transition-dur-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebStudio - Homework 5</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-container">
+        <nav class="nav">
+          <a href="./index.html" class="logo header-logo">Web<span class="logo-dark">Studio</span></a>
+        </nav>
+      </div>
+    </header>
 
-body {
-  font-family: var(--primary-font);
-  color: #434455;
-  background-color: var(--white);
-}
+    <main>
+      <section class="hero">
+        <div class="container">
+          <button class="btn hero-btn" type="button">Order Service</button>
+        </div>
+      </section>
+    </main>
 
-.container {
-  width: 1158px;
-  padding: 0 15px;
-  margin: 0 auto;
-}
+    <footer class="footer">
+      <div class="container footer-container">
+        <div class="footer-info">
+          <a href="./index.html" class="logo footer-logo">Web<span class="logo-light">Studio</span></a>
+          <p class="footer-text">
+            Increase the flow of customers and sales for your business with digital marketing & growth solutions.
+          </p>
+        </div>
 
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
+        <div class="footer-social">
+          <p class="footer-title">Social media</p>
+          <ul class="footer-social-list">
+            <li class="footer-social-item">
+              <a href="" class="footer-social-link">
+                <svg class="footer-social-icon" width="24" height="24">
+                  <use href="./images/icons.svg#icon-instagram"></use>
+                </svg>
+              </a>
+            </li>
+            </ul>
+        </div>
 
-/* --- FOOTER --- */
-.footer {
-  background-color: var(--navy-blue);
-  padding: 100px 0;
-}
+        <div class="footer-subscribe">
+          <p class="footer-title">Subscribe</p>
+          <form class="subscribe-form">
+            <label class="subscribe-label">
+              <input
+                type="email"
+                name="footer-email"
+                class="subscribe-input"
+                placeholder="E-mail"
+                required
+              />
+            </label>
+            <button type="submit" class="btn subscribe-btn">
+              Subscribe
+              <svg class="subscribe-icon" width="24" height="24">
+                <use href="./images/icons.svg#icon-send"></use>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </footer>
 
-.footer-form-title {
-  color: var(--white);
-  font-weight: 500;
-  margin-bottom: 16px;
-}
+    <div class="backdrop" data-modal>
+      <div class="modal">
+        <button class="close-btn" type="button" data-modal-close>
+          <svg class="close-icon" width="8" height="8">
+            <use href="./images/icons.svg#close"></use>
+          </svg>
+        </button>
 
-.subscribe-form {
-  display: flex;
-  gap: 24px;
-}
+        <p class="modal-title">Leave your contacts and we will call you back</p>
 
-.subscribe-input {
-  width: 264px;
-  height: 40px;
-  border: 1px solid var(--white);
-  background-color: transparent;
-  border-radius: 4px;
-  padding-left: 16px;
-  color: var(--white);
-  font-size: 12px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
-}
+        <form class="modal-form">
+          <div class="modal-field">
+            <label for="user-name" class="modal-label">Name</label>
+            <div class="input-wrap">
+              <input type="text" name="user-name" id="user-name" class="modal-input" required />
+              <svg class="input-icon" width="18" height="24">
+                <use href="./images/icons.svg#person"></use>
+              </svg>
+            </div>
+          </div>
 
-/* --- MODAL BACKDROP --- */
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(46, 47, 66, 0.4);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition:
-    opacity var(--transition-dur-func),
-    visibility var(--transition-dur-func);
-}
+          <div class="modal-field">
+            <label for="user-tel" class="modal-label">Phone</label>
+            <div class="input-wrap">
+              <input type="tel" name="user-phone" id="user-tel" class="modal-input" required />
+              <svg class="input-icon" width="18" height="24">
+                <use href="./images/icons.svg#phone"></use>
+              </svg>
+            </div>
+          </div>
 
-.backdrop.is-open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 408px;
-  min-height: 584px;
-  background-color: var(--dairy);
-  box-shadow:
-    0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 1px 3px rgba(0, 0, 0, 0.12),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  padding: 72px 24px 24px 24px;
-}
-
-/* --- FORM ELEMENTS --- */
-.modal-field {
-  margin-bottom: 8px;
-}
-.modal-label {
-  display: block;
-  font-size: 12px;
-  color: var(--light-slate);
-  margin-bottom: 4px;
-  line-height: 1.17;
-}
-
-.input-wrap {
-  position: relative;
-}
-
-.modal-input {
-  width: 100%;
-  height: 40px;
-  border: 1px solid rgba(46, 47, 66, 0.4);
-  border-radius: 4px;
-  padding-left: 38px;
-  outline: transparent;
-  transition: border-color var(--transition-dur-func);
-}
-
-/* D3: Зміна кольору рамки та іконки */
-.modal-input:focus {
-  border-color: var(--accent-color);
-}
-.input-icon {
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  fill: var(--navy-blue);
-  transition: fill var(--transition-dur-func);
-}
-.modal-input:focus + .input-icon {
-  fill: var(--accent-color);
-}
-
-.modal-textarea {
-  width: 100%;
-  height: 120px;
-  border: 1px solid rgba(46, 47, 66, 0.4);
-  border-radius: 4px;
-  padding: 8px 16px;
-  outline: transparent;
-  resize: none; /* C11 */
-  transition: border-color var(--transition-dur-func);
-}
-.modal-textarea:focus {
-  border-color: var(--accent-color);
-}
-
-/* D5: CUSTOM CHECKBOX */
-.custom-check {
-  width: 16px;
-  height: 16px;
-  border: 1px solid rgba(46, 47, 66, 0.4);
-  border-radius: 2px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  fill: transparent;
-  margin-right: 8px;
-  transition:
-    background-color var(--transition-dur-func),
-    border var(--transition-dur-func),
-    fill var(--transition-dur-func);
-}
-
-.checkbox:checked + .policy-label .custom-check {
-  background-color: #404bbf;
-  border: none;
-  fill: var(--cloud);
-}
-
-.btn {
-  cursor: pointer;
-  border: none;
-  border-radius: 4px;
-  transition: background-color var(--transition-dur-func);
-}
-
-.submit-btn {
-  display: block;
-  margin: 0 auto;
-  min-width: 169px;
-  height: 56px;
-  background-color: var(--accent-color);
-  color: var(--white);
-}
+          <div class="modal-field">
+            <label
