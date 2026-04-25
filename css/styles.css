@@ -1,0 +1,144 @@
+/* A1 — всі стилі тут */
+
+:root {
+  --accent: #4d5ae5;
+  --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+.header {
+  padding: 20px;
+  background: #f5f5f5;
+}
+
+/* BUTTON */
+.btn {
+  padding: 10px 20px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.btn:hover,
+.btn:focus {
+  background: #3b49c6;
+}
+
+/* FOOTER FORM */
+.footer {
+  padding: 20px;
+  background: #eee;
+}
+
+.subscribe-form input {
+  padding: 8px;
+  margin-right: 10px;
+  transition: border var(--transition);
+}
+
+.subscribe-form input:focus {
+  outline: none;
+  border: 2px solid var(--accent);
+}
+
+/* BACKDROP (B1–B2, B6–B7) */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+/* MODAL (B3–B4) */
+.modal {
+  position: relative;
+  width: 400px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  transform: scale(0.9);
+  transition: transform var(--transition);
+}
+
+.backdrop.is-open .modal {
+  transform: scale(1);
+}
+
+/* CLOSE BUTTON (B5) */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* FORM */
+.modal-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.modal-form input,
+.modal-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  transition: border var(--transition);
+}
+
+.modal-form input:focus,
+.modal-form textarea:focus {
+  outline: none;
+  border: 2px solid var(--accent);
+}
+
+/* C11 */
+.modal-form textarea {
+  resize: none;
+  height: 100px;
+}
+
+/* CHECKBOX (D4–D5) */
+.checkbox input {
+  display: none;
+}
+
+.custom-check {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #333;
+  margin-right: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox input:checked + .custom-check {
+  background: var(--accent);
+  border: none;
+  transition: background var(--transition);
+}
