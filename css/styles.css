@@ -1,144 +1,286 @@
-/* A1 — всі стилі тут */
-
+/* A1: Всі стилі в одному файлі */
 :root {
-  --accent: #4d5ae5;
-  --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --primary-font: "Roboto", sans-serif;
+  --accent-color: #4d5ae5;
+  --navy-blue: #2e2f42;
+  --slate: #434455;
+  --white: #ffffff;
+  --cloud: #f4f4fd;
+  --light-slate: #8e8f99;
+  --dairy: #fcfcfc;
+  /* D6: Параметри переходів */
+  --transition-dur-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: var(--primary-font);
+  color: var(--slate);
+  background-color: var(--white);
 }
 
-/* HEADER */
-.header {
-  padding: 20px;
-  background: #f5f5f5;
+.container {
+  width: 1158px;
+  padding: 0 15px;
+  margin: 0 auto;
 }
 
-/* BUTTON */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+/* --- BUTTONS --- */
 .btn {
-  padding: 10px 20px;
-  background: var(--accent);
-  color: white;
-  border: none;
+  font-family: inherit;
   cursor: pointer;
-  transition: background var(--transition);
+  border: none;
+  border-radius: 4px;
+  transition: background-color var(--transition-dur-func);
 }
 
-.btn:hover,
-.btn:focus {
-  background: #3b49c6;
-}
-
-/* FOOTER FORM */
+/* --- FOOTER & SUBSCRIBE FORM (D1) --- */
 .footer {
-  padding: 20px;
-  background: #eee;
+  background-color: var(--navy-blue);
+  padding: 100px 0;
 }
 
-.subscribe-form input {
-  padding: 8px;
-  margin-right: 10px;
-  transition: border var(--transition);
+.footer-form-title {
+  color: var(--white);
+  font-weight: 500;
+  margin-bottom: 16px;
 }
 
-.subscribe-form input:focus {
+.subscribe-form {
+  display: flex;
+  gap: 24px;
+}
+
+.subscribe-input {
+  width: 264px;
+  height: 40px;
+  border: 1px solid var(--white);
+  background-color: transparent;
+  border-radius: 4px;
+  padding-left: 16px;
+  color: var(--white);
+  font-size: 12px;
+  transition: border-color var(--transition-dur-func);
+}
+
+.subscribe-input:focus {
   outline: none;
-  border: 2px solid var(--accent);
+  border-color: var(--accent-color);
 }
 
-/* BACKDROP (B1–B2, B6–B7) */
+.subscribe-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 165px;
+  height: 40px;
+  background-color: var(--accent-color);
+  color: var(--white);
+  font-weight: 500;
+}
+
+/* --- BACKDROP (B1, B2, B6, B7) --- */
 .backdrop {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background-color: rgba(46, 47, 66, 0.4);
 
+  /* Спочатку прихований */
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  transition:
+    opacity var(--transition-dur-func),
+    visibility var(--transition-dur-func);
 }
 
+/* B7: Клас для відкриття */
 .backdrop.is-open {
   opacity: 1;
   visibility: visible;
-  pointer-events: all;
+  pointer-events: auto;
 }
 
-/* MODAL (B3–B4) */
+/* --- MODAL (B3, B4) --- */
 .modal {
-  position: relative;
-  width: 400px;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  transform: scale(0.9);
-  transition: transform var(--transition);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 408px;
+  min-height: 584px;
+  background-color: var(--dairy);
+  box-shadow:
+    0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 72px 24px 24px 24px;
+  transition: transform var(--transition-dur-func);
 }
 
-.backdrop.is-open .modal {
-  transform: scale(1);
-}
-
-/* CLOSE BUTTON (B5) */
+/* B5: CLOSE BUTTON */
 .close-btn {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
+  top: 24px;
+  right: 24px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e7e9fc;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0;
+  transition:
+    background-color var(--transition-dur-func),
+    border var(--transition-dur-func);
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  background-color: #404bbf;
   border: none;
-  cursor: pointer;
+  fill: var(--white);
 }
 
-/* FORM */
-.modal-form label {
+/* --- MODAL FORM (D2) --- */
+.modal-title {
+  font-weight: 500;
+  text-align: center;
+  color: var(--navy-blue);
+  margin-bottom: 16px;
+}
+
+.modal-field {
+  margin-bottom: 8px;
+}
+
+.modal-label {
   display: block;
-  margin-bottom: 10px;
+  font-size: 12px;
+  color: var(--light-slate);
+  margin-bottom: 4px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
 }
 
-.modal-form input,
-.modal-form textarea {
+.input-wrap {
+  position: relative;
+}
+
+.modal-input {
   width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  transition: border var(--transition);
+  height: 40px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px;
+  background-color: transparent;
+  padding-left: 38px;
+  outline: transparent;
+  transition: border-color var(--transition-dur-func);
 }
 
-.modal-form input:focus,
-.modal-form textarea:focus {
-  outline: none;
-  border: 2px solid var(--accent);
+/* D3: Фокус на інпуті та зміна іконки */
+.modal-input:focus {
+  border-color: var(--accent-color);
 }
 
-/* C11 */
-.modal-form textarea {
-  resize: none;
-  height: 100px;
+.input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: var(--navy-blue);
+  transition: fill var(--transition-dur-func);
 }
 
-/* CHECKBOX (D4–D5) */
-.checkbox input {
-  display: none;
+.modal-input:focus + .input-icon {
+  fill: var(--accent-color);
+}
+
+/* C11: Textarea */
+.modal-field-comment {
+  margin-bottom: 16px;
+}
+
+.modal-textarea {
+  width: 100%;
+  height: 120px;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: rgba(46, 47, 66, 0.4);
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px;
+  background-color: transparent;
+  padding: 8px 16px;
+  outline: transparent;
+  resize: none; /* Заборона зміни розміру */
+  transition: border-color var(--transition-dur-func);
+}
+
+.modal-textarea:focus {
+  border-color: var(--accent-color);
+}
+
+/* D5: CUSTOM CHECKBOX */
+.modal-field-policy {
+  margin-bottom: 24px;
+}
+
+.policy-label {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: var(--light-slate);
 }
 
 .custom-check {
-  display: inline-flex;
   width: 16px;
   height: 16px;
-  border: 1px solid #333;
-  margin-right: 5px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 2px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  fill: transparent;
+  margin-right: 8px;
+  transition:
+    background-color var(--transition-dur-func),
+    border var(--transition-dur-func),
+    fill var(--transition-dur-func);
 }
 
-.checkbox input:checked + .custom-check {
-  background: var(--accent);
+.checkbox:checked + .policy-label .custom-check {
+  background-color: #404bbf;
   border: none;
-  transition: background var(--transition);
+  fill: var(--cloud);
+}
+
+.submit-btn {
+  display: block;
+  margin: 0 auto;
+  min-width: 169px;
+  height: 56px;
+  background-color: var(--accent-color);
+  color: var(--white);
+  font-weight: 500;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
